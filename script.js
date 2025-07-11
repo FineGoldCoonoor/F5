@@ -112,7 +112,7 @@ camera.start();
 
 function drawJewelry(landmarks, ctx) {
   const earringScale = 0.07;
-  const necklaceScale = 0.14;
+  const necklaceScale = 0.18;
 
   const leftEar = {
     x: landmarks[132].x * canvasElement.width - 6,
