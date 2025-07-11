@@ -58,6 +58,8 @@ video, canvas {
   backdrop-filter: blur(8px);
 }
 
+
+
 #jewelry-mode button {
   background-color: #ffd700;
   color: #000;
@@ -81,10 +83,11 @@ video, canvas {
   display: flex;
   gap: 15px;
   z-index: 2;
-  background: transparent;
-  backdrop-filter: blur(10px);
+  background: transparent; /* ✅ no white background */
+  backdrop-filter: none;   /* or keep blur if you like glassy effect */
   padding: 10px 20px;
   border-radius: 16px;
+  backdrop-filter: blur(10px);
   max-width: 90%;
   overflow-x: auto;
   scrollbar-width: none;
@@ -93,7 +96,6 @@ video, canvas {
 .options-group::-webkit-scrollbar {
   display: none;
 }
-
 .options-group button {
   background: transparent;
   border: none;
@@ -108,18 +110,16 @@ video, canvas {
   transition: transform 0.2s ease;
 }
 
-/* 🔥 Hover glow + pulse */
 .options-group button:hover img {
   border: 2px solid #ffd700;
-  transform: scale(1.08);
-  box-shadow: 0 0 8px #ffd700;
+  transform: scale(1.05);
 }
 
 #snapshot-btn {
   position: fixed;
   top: 20px;
   right: 20px;
-  background-color: transparent;
+  background-color: transparent; /* remove yellow background */
   border: none;
   padding: 0;
   border-radius: 50%;
@@ -161,7 +161,6 @@ video, canvas {
   z-index: 9999;
   max-width: 90%;
   width: 400px;
-  animation: fadeIn 0.3s ease-in-out;
 }
 
 .info-content ul {
@@ -190,7 +189,6 @@ video, canvas {
   padding: 20px;
   text-align: center;
   z-index: 9999;
-  animation: fadeIn 0.3s ease-in-out;
 }
 
 #snapshot-preview {
@@ -209,10 +207,9 @@ video, canvas {
   color: #000;
   cursor: pointer;
 }
-
 #location-btn {
   position: fixed;
-  bottom: 80px;
+  bottom: 80px; /* above the info button */
   right: 20px;
   background-color: #ffd700;
   color: #000;
@@ -237,31 +234,4 @@ video, canvas {
   max-width: 90%;
   width: 400px;
   text-align: center;
-  animation: fadeIn 0.3s ease-in-out;
-}
-
-/* ------------------ Animations ------------------ */
-@keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to   { opacity: 1; transform: scale(1); }
-}
-
-@keyframes flash {
-  from { opacity: 0.85; }
-  to   { opacity: 0; }
-}
-
-/* Generic class to trigger fade on any element */
-.jewelry-fade-in {
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-/* Flash effect overlay (JS will create/remove) */
-.flash-effect {
-  position: fixed;
-  inset: 0;
-  background: white;
-  opacity: 0;
-  z-index: 9999;
-  animation: flash 0.3s ease-in-out forwards;
 }
