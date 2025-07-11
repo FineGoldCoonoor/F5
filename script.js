@@ -112,18 +112,18 @@ camera.start();
 
 function drawJewelry(landmarks, ctx) {
   const earringScale = 0.07;
-  const necklaceScale = 0.18;
+  const necklaceScale = 0.18; // Enlarged necklace
 
   const leftEar = {
     x: landmarks[132].x * canvasElement.width - 6,
-    y: landmarks[132].y * canvasElement.height - 16, // final upward fix
+    y: landmarks[132].y * canvasElement.height - 16,
   };
   const rightEar = {
     x: landmarks[361].x * canvasElement.width + 6,
-    y: landmarks[361].y * canvasElement.height - 16, // final upward fix
+    y: landmarks[361].y * canvasElement.height - 16,
   };
   const neck = {
-    x: landmarks[152].x * canvasElement.width,
+    x: landmarks[152].x * canvasElement.width - 8, // ⬅ Shifted necklace left
     y: landmarks[152].y * canvasElement.height + 42,
   };
 
